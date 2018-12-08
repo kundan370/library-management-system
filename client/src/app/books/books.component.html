@@ -1,0 +1,40 @@
+<!--<h2>{{book.name | uppercase}} Details</h2>-->
+<!--<div><span>id: </span>{{book.id}}</div>-->
+<!--<div><span>name: </span>{{book.name}}</div>-->
+<!--<div><span>author: </span>{{book.author}}</div>-->
+<!--<div><span>edition: </span>{{book.edition}}</div>-->
+
+<!--<div>-->
+  <!--<label>name:-->
+    <!--<input [(ngModel)]="book.name" placeholder="name">-->
+  <!--</label>-->
+<!--</div>-->
+
+<h2>All Books Collection</h2>
+<ul class="books">
+  <li *ngFor="let book of books">
+      <!--[class.selected]="book===selectedBook"-->
+      <!--(click)="onSelect(book)"> -->
+    <a routerLink="/detail/{{book.id}}">
+      <span class="badge">{{book.id}}</span> {{book.name}}
+    </a>
+    <button class="delete" (click)="delete(book)" title="delete book">x</button>
+  </li>
+</ul>
+
+<div>
+  <h3>Add New Book</h3>
+  <label>Book Name :
+    <input #bookName />
+  </label>
+  <label>Book Author :
+    <input #bookAuthor />
+  </label>
+  <label>Book Edition :
+    <input #bookEdition />
+  </label>
+
+  <button (click)="add(bookName.value, bookAuthor.value, bookEdition.value); bookName.value = ''; bookAuthor.value = ''; bookEdition.value = ''">Add</button>
+</div>
+
+<app-book-detail [book]="selectedBook"></app-book-detail>

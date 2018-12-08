@@ -1,0 +1,29 @@
+<h2>All Issues</h2>
+<table class="issues">
+  <tr>
+    <th>Id</th>
+    <th>Book Id</th>
+    <th>Issuer Id</th>
+    <th>Issued By</th>
+    <th>Is Approved</th>
+    <th>Date of Request</th>
+    <th>Date of Approval</th>
+    <th>Expected Date of Return</th>
+    <th>Date of Return</th>
+    <th>Penalty</th>
+  </tr>
+  <tr *ngFor="let issue of issues">
+    <td>{{issue.id}}</td>
+    <td>{{issue.bookId}}</td>
+    <td>{{issue.issuerId}}</td>
+    <td>{{issue.issuedBy}}</td>
+    <td>{{issue.approved}}</td>
+    <td>{{issue.dateOfRequestGenerated}}</td>
+    <td>{{issue.dateOfIssue}}</td>
+    <td>{{issue.expectedDateOfReturn}}</td>
+    <td>{{issue.dateOfReturn}}</td>
+    <td>{{issue.penalty}}</td>
+    <td><button class="approve" title="approve book">Approve</button></td>
+    <td><button class="return" title="return book">Return</button></td>
+  </tr>
+</table>
